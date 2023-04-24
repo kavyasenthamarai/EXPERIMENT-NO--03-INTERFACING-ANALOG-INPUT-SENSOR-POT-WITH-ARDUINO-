@@ -1,4 +1,4 @@
-# EXPERIMENT-NO--03-INTERFACING-ANALOG-INPUT-SENSOR-POT-WITH-ARDUINO-
+# EXPERIMENT-NO--02-INTERFACING-ANALOG-INPUT-SENSOR-POT-WITH-ARDUINO-
 
 
 
@@ -52,7 +52,7 @@ CIRCUIT DIAGRAM
 **FIGURE -01
 **
 
-**PROCEDURE:**
+PROCEDURE:
 
 1.	Connect the circuit as per the circuit diagram 
 2.	Connect the board to your computer via the USB cable.
@@ -67,27 +67,45 @@ CIRCUIT DIAGRAM
 
 
 **PROGRAM** 
- 
+ ```
+int potPin= A5;
+int ledPin= 2;
+
+void setup()
+{
+  pinMode(potPin, INPUT);
+  pinMode (ledPin, OUTPUT);
+  Serial.begin(9600);
+  
+}
+
+void loop()
+{
+  int PotMeasure = analogRead(A5);
+  Serial.print("Sensor Value: ");
+  Serial.println(PotMeasure);
+  if (PotMeasure>=650)
+  {
+    digitalWrite(2, HIGH);
+  }
+  else
+    digitalWrite(2, LOW);
+}
+
+```
+
+Simulation output:
+
+#Before stimulation:
+
+![exp2 b](https://user-images.githubusercontent.com/118668727/234004660-a7c2e889-f219-4b70-b1b5-b189eb7fa142.png)
+
+#After stimulation:
 
 
+![image](https://user-images.githubusercontent.com/118668727/234005891-a164401f-4d01-4356-94d7-3e37fe0fd34e.png)
 
 
+#RESULT: 
 
-
-
-
-
-**
-**Simulation output:** 
-**
-
-
-[My image](username.github.com/repository/img/image.jpg)
-
-
-
-
-
-
-
-**RESULT: ** Arduino uno analog input functioning is learned and interfaced with digital input switch .
+Arduino uno analog input functioning is learned and interfaced with digital input switch .
